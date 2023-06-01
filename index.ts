@@ -147,19 +147,29 @@
 // combinedValues = printResult; // Givers squiggly line because it doesn't match the type we specified
 // combinedValues(9);
 
-//UNKNOWN
-let userInput: any;
-let userName: string;
+// //UNKNOWN
+// let userInput: any;
+// let userName: string;
 
-userInput = 'Sai Surya Teja';
-userName = userInput;
-console.log(userName); //Executes doesn't give any error because TS Disables type checking
+// userInput = 'Sai Surya Teja';
+// userName = userInput;
+// console.log(userName); //Executes doesn't give any error because TS Disables type checking
 
-let userInput: unknown;
-let userName: string;
-userName = userInput; //gives error because TS doesn't know which type it is
-//but if you type check with if condition Ts understands gives no error,So it is better than any
-userInput = 'Sai Surya Teja';
-if (typeof userInput === 'string') {
-  userName = userInput;
+// let userInput: unknown;
+// let userName: string;
+// userName = userInput; //gives error because TS doesn't know which type it is
+// //but if you type check with if condition Ts understands gives no error,So it is better than any
+// userInput = 'Sai Surya Teja';
+// if (typeof userInput === 'string') {
+//   userName = userInput;
+// }
+
+//NEVER
+function generateError(message: string, code: number): never {
+  throw {
+    message: message,
+    errorcode: code,
+  };
 }
+
+generateError('Error occured', 500);
