@@ -126,23 +126,40 @@
 // };
 // console.log(user.age);
 
-//Functions
-function add(n1: number, n2: number): number {
-  return n1 + n2;
-}
-const addRes = add(1, 2);
-console.log(addRes);
-const addRes1 = add(1, 5);
-console.log(addRes1);
+// //Functions
+// function add(n1: number, n2: number): number {
+//   return n1 + n2;
+// }
+// const addRes = add(1, 2);
+// console.log(addRes);
+// const addRes1 = add(1, 5);
+// console.log(addRes1);
 
-function printResult(num: number): void {
-  console.log(num);
-}
-printResult(2);
+// function printResult(num: number): void {
+//   console.log(num);
+// }
+// printResult(2);
 
-// let combinedValues: Function; //We can also specify like this.but less specific
-let combinedValues: (a: number, b: number) => number;
-combinedValues = add; //it matches the type we specified.
-console.log(combinedValues(3, 5));
-combinedValues = printResult; // Givers squiggly line because it doesn't match the type we specified
-combinedValues(9);
+// // let combinedValues: Function; //We can also specify like this.but less specific
+// let combinedValues: (a: number, b: number) => number;
+// combinedValues = add; //it matches the type we specified.
+// console.log(combinedValues(3, 5));
+// combinedValues = printResult; // Givers squiggly line because it doesn't match the type we specified
+// combinedValues(9);
+
+//UNKNOWN
+let userInput: any;
+let userName: string;
+
+userInput = 'Sai Surya Teja';
+userName = userInput;
+console.log(userName); //Executes doesn't give any error because TS Disables type checking
+
+let userInput: unknown;
+let userName: string;
+userName = userInput; //gives error because TS doesn't know which type it is
+//but if you type check with if condition Ts understands gives no error,So it is better than any
+userInput = 'Sai Surya Teja';
+if (typeof userInput === 'string') {
+  userName = userInput;
+}
