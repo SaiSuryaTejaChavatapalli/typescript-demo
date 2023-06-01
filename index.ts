@@ -117,11 +117,32 @@
 // console.log(Flights.FOURTH);
 
 //Objects
-const user: {
-  name: string;
-  age: number;
-} = {
-  name: 'Sai',
-  age: 20,
-};
-console.log(user.age);
+// const user: {
+//   name: string;
+//   age: number;
+// } = {
+//   name: 'Sai',
+//   age: 20,
+// };
+// console.log(user.age);
+
+//Functions
+function add(n1: number, n2: number): number {
+  return n1 + n2;
+}
+const addRes = add(1, 2);
+console.log(addRes);
+const addRes1 = add(1, 5);
+console.log(addRes1);
+
+function printResult(num: number): void {
+  console.log(num);
+}
+printResult(2);
+
+// let combinedValues: Function; //We can also specify like this.but less specific
+let combinedValues: (a: number, b: number) => number;
+combinedValues = add; //it matches the type we specified.
+console.log(combinedValues(3, 5));
+combinedValues = printResult; // Givers squiggly line because it doesn't match the type we specified
+combinedValues(9);
